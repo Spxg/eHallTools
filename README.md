@@ -99,6 +99,9 @@ foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
 
 * 添加删除服务地址后，回主页面更新即可
 
+* 移动config到程序目录
+* 创建downloads文件夹
+
 ## 程序下载
 - [eHallTools]()
 
