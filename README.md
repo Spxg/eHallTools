@@ -64,7 +64,7 @@
 
 双击看详情
 
-![详情](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129230831.png)
+![详情](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129235909.png)
 
 如有文件，双击下载（/downloads）
 
