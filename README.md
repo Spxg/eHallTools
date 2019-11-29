@@ -11,6 +11,7 @@
 
 ## 使用教程
 ### 登录
+
 ![登录界面](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129224021.png)
 
 学校服务地址配置存储格式，可编辑添加（/config/server.json）
@@ -23,7 +24,7 @@
       "AuthserverHttp": "http://authserver.tjut.edu.cn",
       "EhallHttp": "http://ehall.tjut.edu.cn"
     },
-    {server.json
+    {
       "University": "山东理工大学",
       "AuthserverHttp": "http://authserver.sdut.edu.cn",
       "EhallHttp": "http://ehall.sdut.edu.cn"
@@ -33,9 +34,11 @@
 ```
 
 或者在页面添加
+
 ![添加服务界面](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129225250.png)
 
 或删除
+
 ![删除服务界面](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129230058.png)
 
 账号密码等信息的保存（/config/settings.json）
@@ -51,20 +54,25 @@
 ```
 
 ### 应用选择
+
 ![应用选择界面](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129230229.png)
 
 ## 应用
 ### 通知公告
+
 ![通知公告](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129230505.png)
 
 双击看详情
+
 ![详情](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129230831.png)
 
 如有文件，双击下载（/downloads）
+
 ![下载文件](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129230840.png)
 
 ## 注意
 * 对于某些通知，处理的并不好（没法看）如以下通知，因技术有限，处理成一坨
+
 ![案例](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129231746.png)
 
 使用正则表达式处理一些文章
@@ -86,4 +94,10 @@ foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
 
 * 并不需要连接校园网，但是校园网访问很快！
 
+* 添加删除服务地址后，回主页面更新即可
+
 ## 程序下载
+- [eHallTools]()
+
+## 源码
+- [source](https://github.com/Spxg/eHallTools)
