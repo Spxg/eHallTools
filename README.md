@@ -1,5 +1,5 @@
 ## 博客
--[一条咸鱼](https://spxg.me)
+[一条咸鱼](https://spxg.me)
 
 ## 什么是eHallTools?
 * 一个小软件，用于便携的查看大学eHall网站上的信息，理论上没有被魔改的eHall都是通用的
