@@ -1,0 +1,23 @@
+﻿<Window x:Class="eHallTools.Applications"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:eHallTools"
+        mc:Ignorable="d"
+        Title="选择应用" Height="170" Width="250" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Microsoft YaHei UI">
+    <Grid>
+        <ComboBox x:Name="Application" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" SelectedIndex="0" Margin="100,72,0,0"/>
+        <Button Content="进入" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Apply_Click" RenderTransformOrigin="0.402,2.805" Margin="0,98,0,0"/>
+        <TextBlock x:Name="StudentId" HorizontalAlignment="Left" Margin="78,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="60" Grid.Column="1"/>
+        <TextBlock x:Name="StudentName" Grid.Column="1" HorizontalAlignment="Left" Margin="78,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="16" Width="60"/>
+        <TextBlock x:Name="Sex" Grid.Column="1" HorizontalAlignment="Left" Margin="78,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="20" Height="19"/>
+        <TextBlock x:Name="School" Grid.Column="1" HorizontalAlignment="Left" Margin="78,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" Height="15"/>
+        <Label Content="学号" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="39,0,0,0" VerticalAlignment="Top"/>
+        <Label Content="姓名" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="39,15,0,0" VerticalAlignment="Top" Height="28"/>
+        <Label Content="性别" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="39,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="学院" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="39,45,0,0" VerticalAlignment="Top"/>
+        <Label Content="应用选择" HorizontalAlignment="Left" Margin="37,70,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
