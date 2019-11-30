@@ -2,7 +2,7 @@
 [一条咸鱼](https://spxg.me)
 
 ## 什么是eHallTools?
-* 一个小软件，用于便携的查看大学eHall网站上的信息，理论上没有被魔改的eHall都是通用的
+* 一个小软件，用于方便的查看大学eHall网站上的信息，针对天津理工大学eHall进行的开发，由于不知道其他学校eHall有没有通知公告等功能，故不一定通用
 
 ## 为什么开发它
 * 初学C#，想写一些项目学习并巩固知识
@@ -26,11 +26,6 @@
       "University": "天津理工大学",
       "AuthserverHttp": "http://authserver.tjut.edu.cn",
       "EhallHttp": "http://ehall.tjut.edu.cn"
-    },
-    {
-      "University": "山东理工大学",
-      "AuthserverHttp": "http://authserver.sdut.edu.cn",
-      "EhallHttp": "http://ehall.sdut.edu.cn"
     }
   ]
 }
