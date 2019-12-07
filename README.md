@@ -1,6 +1,9 @@
 ## 博客
 [一条咸鱼](https://spxg.me)
 
+## 使用前必看
+* 软件采用.Net Core WPF开发, 需下载运行时[.Net Core Runtime](https://dotnet.microsoft.com/download)
+
 ## 什么是eHallTools?
 * 一个小软件，用于方便的查看大学eHall网站上的信息，针对天津理工大学eHall进行的开发，由于不知道其他学校eHall有没有通知公告等功能，故不一定通用
 
