@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
 
@@ -17,27 +18,50 @@ namespace eHallTools
 
         public async void ShowPage()
         {
-            JsonOperation notice = new JsonOperation();
-            PageObject pageJson = await notice.GetPageInfoAsync(PageNumber.Text, PageSize.Text);
-            ObservableCollection<PageInfo> PageData = new ObservableCollection<PageInfo>();
-
-            foreach (var item in pageJson.Qp.AList)
-            {
-                PageData.Add(new PageInfo()
-                {
-                    Title = item.Title,
-                    ReadCount = int.Parse(item.Read_Count),
-                    PublishPeople = item.Publish_User_Name,
-                    PublishDept = item.Publish_User_Dept_Name,
-                    PublishTime = item.Create_time,
-                    LastUpdateTime = item.Update_Time,
-                    NoticeId = item.Wid,
-                    Attachment = item.Attachment
-                });
-            }
+            int checkNumber = 0;
             
-            PageGrid.DataContext = PageData;
+            if (!int.TryParse(PageNumber.Text, out checkNumber) || checkNumber <= 0)
+            {
+                MessageBox.Show("请输入页数");
+                PageNumber.Text = "1";
+            }
 
+            if (!int.TryParse(PageSize.Text, out checkNumber) || checkNumber <= 0)
+            {
+                MessageBox.Show("请输入正确的数字");
+                PageSize.Text = "10";
+            }
+
+            JsonOperation notice = new JsonOperation();
+            PageObject pageJson = await notice.GetPageInfoAsync(PageNumber.Text, PageSize.Text, SearchParam.Text);
+
+            if (pageJson != null)
+            {
+                ObservableCollection<PageInfo> PageData = new ObservableCollection<PageInfo>();
+
+                foreach (var item in pageJson.Qp.AList)
+                {
+                    PageData.Add(new PageInfo()
+                    {
+                        Title = item.Title,
+                        ReadCount = int.Parse(item.Read_Count),
+                        PublishPeople = item.Publish_User_Name,
+                        PublishDept = item.Publish_User_Dept_Name,
+                        PublishTime = item.Create_time,
+                        LastUpdateTime = item.Update_Time,
+                        NoticeId = item.Wid,
+                        Attachment = item.Attachment
+                    });
+                }
+
+                TotalSize.Text = pageJson.Qp.TotalSize;
+                PageGrid.DataContext = PageData;
+            }
+            else
+            {
+                SearchParam.Text = String.Empty;
+                PageNumber.Text = "1";
+            }
         }
 
         private void PageGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -49,7 +73,10 @@ namespace eHallTools
 
         private void PageSize_KeyDown(object sender, KeyEventArgs e)
         {
-            ShowPage();
+            if (e.Key == Key.Enter)
+            {
+                ShowPage();
+            }
         }
 
         private void NextPage_Click(object sender, RoutedEventArgs e)
@@ -61,7 +88,7 @@ namespace eHallTools
         private void PreviousPage_Click(object sender, RoutedEventArgs e)
         {
             int number = int.Parse(PageNumber.Text);
-            
+
             if (number > 1)
             {
                 PageNumber.Text = (number - 1).ToString();
@@ -71,7 +98,24 @@ namespace eHallTools
 
         private void PageNumber_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Enter)
+            {
+                ShowPage();
+            }
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            PageNumber.Text = "1";
             ShowPage();
+        }
+
+        private void SearchParam_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                ShowPage();
+            }
         }
 
         public class PageInfo

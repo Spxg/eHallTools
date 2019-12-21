@@ -17,6 +17,7 @@ namespace eHallTools
     public class NoticeList
     {
         public List<NoticeInfo> AList { get; set; }
+        public string TotalSize { get; set; }
     }
 
     public class PageObject

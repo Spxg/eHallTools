@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using Newtonsoft.Json;
 
 namespace eHallTools
 {
     class JsonOperation
     {
-        public async Task<PageObject> GetPageInfoAsync(string pageNumber, string pageSize)
+        public async Task<PageObject> GetPageInfoAsync(string pageNumber, string pageSize, string searchParam)
         {
             pageNumber = (int.Parse(pageNumber) - 1).ToString();
 
@@ -16,7 +18,7 @@ namespace eHallTools
             {
                 { "PAGE_NO", pageNumber },
                 { "PAGE_SIZE", pageSize },
-                { "TITLE", "" },
+                { "TITLE", searchParam },
                 { "COLUMN_ID", "ColumnALL" },
                 { "DEPT_ID", "DeptALL" },
                 { "PUBLISH_TIME", "TimeALL" }
@@ -26,8 +28,16 @@ namespace eHallTools
             var page = await MainWindow.operateClient.PostAsync(MainWindow.eHallHttp + "/publicapp/sys/bulletin/bulletin/getAllBulletin.do", pagePost);
             var json = await page.Content.ReadAsStringAsync();
 
-            PageObject pageJson = JsonConvert.DeserializeObject<PageObject>(json);
-            return pageJson;
+            if (json.Contains("\"aList\":null"))
+            {
+                MessageBox.Show("没有通知");
+                return null;
+            }
+            else
+            {
+                PageObject pageJson = JsonConvert.DeserializeObject<PageObject>(json);
+                return pageJson;
+            }
         }
 
         public async Task<NoticeDetail> GetContentInfoAsync(string noticeId)

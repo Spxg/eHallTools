@@ -22,11 +22,15 @@
                                          Binding="{Binding LastUpdateTime}" CanUserResize="False"/>
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="PageNumber" HorizontalAlignment="Left" Margin="517,232,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="27" Height="21" KeyDown="PageNumber_KeyDown"/>
+        <TextBox x:Name="PageNumber" HorizontalAlignment="Left" Margin="504,232,0,0" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="54" Height="21" KeyDown="PageNumber_KeyDown"/>
         <Button x:Name="NextPage" Content="下一页" HorizontalAlignment="Left" Margin="563,232,0,0" VerticalAlignment="Top" Click="NextPage_Click"/>
         <Button x:Name="PreviousPage" Content="上一页" HorizontalAlignment="Left" Margin="459,233,0,0" VerticalAlignment="Top" Click="PreviousPage_Click"/>
 
-        <TextBox x:Name="PageSize" HorizontalAlignment="Left" Margin="692,234,0,0" Text="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" KeyDown="PageSize_KeyDown"/>
-        <Label Content="显示通知数" HorizontalAlignment="Left" Margin="617,230,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="PageSize" HorizontalAlignment="Left" Margin="716,234,0,0" Text="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="32" KeyDown="PageSize_KeyDown"/>
+        <Label Content="每页显示通知数" HorizontalAlignment="Left" Margin="617,230,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TotalSize" HorizontalAlignment="Left" Margin="75,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" IsEnabled="False"/>
+        <Label Content="总通知数" HorizontalAlignment="Left" Margin="10,230,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="SearchParam" HorizontalAlignment="Left" Margin="175,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="148" KeyDown="SearchParam_KeyDown"/>
+        <Button x:Name="Search" Content="搜索" HorizontalAlignment="Left" Margin="339,233,0,0" VerticalAlignment="Top" Click="Search_Click"/>
     </Grid>
 </Window>
