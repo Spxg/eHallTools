@@ -47,18 +47,6 @@ namespace eHallTools
             content.Show();
         }
 
-        public class PageInfo
-        {
-            public string Title { get; set; }
-            public int ReadCount { get; set; }
-            public string PublishPeople { get; set; }
-            public string PublishDept { get; set; }
-            public string PublishTime { get; set; }
-            public string LastUpdateTime { get; set; }
-            public string NoticeId { get; set; }
-            public string Attachment { get; set; }
-        }
-
         private void PageSize_KeyDown(object sender, KeyEventArgs e)
         {
             ShowPage();
@@ -72,13 +60,30 @@ namespace eHallTools
 
         private void PreviousPage_Click(object sender, RoutedEventArgs e)
         {
-            PageNumber.Text = (int.Parse(PageNumber.Text) - 1).ToString();
-            ShowPage();
+            int number = int.Parse(PageNumber.Text);
+            
+            if (number > 1)
+            {
+                PageNumber.Text = (number - 1).ToString();
+                ShowPage();
+            }
         }
 
         private void PageNumber_KeyDown(object sender, KeyEventArgs e)
         {
             ShowPage();
+        }
+
+        public class PageInfo
+        {
+            public string Title { get; set; }
+            public int ReadCount { get; set; }
+            public string PublishPeople { get; set; }
+            public string PublishDept { get; set; }
+            public string PublishTime { get; set; }
+            public string LastUpdateTime { get; set; }
+            public string NoticeId { get; set; }
+            public string Attachment { get; set; }
         }
     }
 }

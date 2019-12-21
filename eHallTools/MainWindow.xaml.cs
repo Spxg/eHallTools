@@ -16,10 +16,12 @@ namespace eHallTools
         public static HttpClient operateClient;
         public static string authserverHttp;
         public static string eHallHttp;
-
+        public static string configPath;
         public MainWindow()
         {
             InitializeComponent();
+            configPath = Environment.CurrentDirectory + "//config";
+            
             UpdateServerAddress();
             GetSettings();
         }
@@ -92,8 +94,9 @@ namespace eHallTools
         {
             JsonOperation jsonOperation = new JsonOperation();
             Setting settings = jsonOperation.GetSettingsInfo();
-
-            var path = Path.Combine(Environment.CurrentDirectory + "\\config", "settings.json");
+            
+            var directory = Environment.CurrentDirectory + "\\config";
+            var path = Path.Combine(directory, "settings.json");
 
             settings.SelectedUniversityIndex = University.SelectedIndex;
             settings.StudentId = StudentId.Text;
@@ -113,7 +116,7 @@ namespace eHallTools
             jsonOperation.UpdateJson<Setting>(path, settings);
         }
 
-        
+
         public void UpdateServerAddress()
         {
             JsonOperation jsonOperation = new JsonOperation();
@@ -176,7 +179,7 @@ namespace eHallTools
             EditServer editServer = new EditServer();
             JsonOperation jsonOperation = new JsonOperation();
             ServerList server = jsonOperation.GetServerInfo();
-            
+
             foreach (var item in server.Info)
             {
                 editServer.UniversityList.Items.Add(item.University);

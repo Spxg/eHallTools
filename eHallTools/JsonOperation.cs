@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -24,8 +23,6 @@ namespace eHallTools
             };
 
             var pagePost = new FormUrlEncodedContent(pagePostData);
-            await MainWindow.operateClient.GetAsync(MainWindow.eHallHttp + "/publicapp/sys/bulletin/configSet/noraml/getRouteConfig.do");
-
             var page = await MainWindow.operateClient.PostAsync(MainWindow.eHallHttp + "/publicapp/sys/bulletin/bulletin/getAllBulletin.do", pagePost);
             var json = await page.Content.ReadAsStringAsync();
 
@@ -58,8 +55,8 @@ namespace eHallTools
         public ServerList GetServerInfo()
         {
             string json;
+            var path = Path.Combine(MainWindow.configPath, "server.json");
 
-            var path = Path.Combine(Environment.CurrentDirectory + "\\config", "server.json");
             using (Stream stream = new FileStream(path, FileMode.Open))
             {
                 StreamReader rs = new StreamReader(stream);
@@ -74,8 +71,7 @@ namespace eHallTools
         public Setting GetSettingsInfo()
         {
             string json;
-            
-            var path = Path.Combine(Environment.CurrentDirectory + "\\config", "settings.json");
+            var path = Path.Combine(MainWindow.configPath, "settings.json");
             
             using (Stream stream = new FileStream(path, FileMode.Open))
             {

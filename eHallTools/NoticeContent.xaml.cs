@@ -38,7 +38,7 @@ namespace eHallTools
 
             foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
             {
-                text = text.Insert(text.IndexOf(m.ToString()), "\n");
+                text = text.Insert(text.LastIndexOf(m.ToString()), "\n");
             }
 
             DetailContent.Text = text;

@@ -16,7 +16,7 @@ namespace eHallTools
 
         public void AddServerInfo()
         {
-            var path = Path.Combine(Environment.CurrentDirectory + "\\config", "server.json");
+            var path = Path.Combine(MainWindow.configPath, "server.json");
 
             Server newServer = new Server()
             {

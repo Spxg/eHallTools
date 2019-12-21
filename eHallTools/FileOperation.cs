@@ -10,15 +10,14 @@ namespace eHallTools
     {
         public async void ShowFileAsync(string token, DataGrid fileGrid)
         { 
-
             JsonOperation notice = new JsonOperation();
             FileList fileList = await notice.GetFileInfoAsync(token);
 
-            ObservableCollection<FileInfo> FileData = new ObservableCollection<FileInfo>();
+            ObservableCollection<FileInfo> fileData = new ObservableCollection<FileInfo>();
 
             foreach (var item in fileList.AList)
             {
-                FileData.Add(new FileInfo()
+                fileData.Add(new FileInfo()
                 {
                     FileName = item.FileName,
                     FileSize = item.FileSize,
@@ -26,13 +25,18 @@ namespace eHallTools
                 });
             }
 
-            fileGrid.DataContext = FileData;
+            fileGrid.DataContext = fileData;
         }
 
         public async void DownloadFileAync(string fileToken, string fileName)
         {
-            var path = Path.Combine(Environment.CurrentDirectory + "\\downloads", fileName);
-            
+            var directory = Environment.CurrentDirectory + "\\downloads";
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            var path = Path.Combine(directory, fileName);
             using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))
             {
                 var stream = await MainWindow.operateClient.GetStreamAsync(MainWindow.eHallHttp + "/publicapp/sys/emapcomponent/file/getAttachmentFile/" + fileToken + ".do");

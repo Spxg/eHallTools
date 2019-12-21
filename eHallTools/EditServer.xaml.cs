@@ -16,7 +16,7 @@ namespace eHallTools
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            var path = Path.Combine(Environment.CurrentDirectory + "\\config", "server.json");
+            var path = Path.Combine(MainWindow.configPath, "server.json");
             JsonOperation jsonOperation = new JsonOperation();
             ServerList server = jsonOperation.GetServerInfo();
 
