@@ -21,9 +21,7 @@ namespace eHallTools
         {
             InitializeComponent();
             configPath = Environment.CurrentDirectory + "//config";
-            
-            UpdateServerAddress();
-            GetSettings();
+            InitializeSettings();
         }
 
         private async void Login_Click(object sender, RoutedEventArgs e)
@@ -69,6 +67,27 @@ namespace eHallTools
             Login.IsEnabled = true;
 
             await account.LogoutAsync();
+        }
+
+        public async void InitializeSettings()
+        {   
+            if (!Directory.Exists(configPath))
+            {
+                Directory.CreateDirectory(configPath);
+
+                var path = Path.Combine(configPath, "server.json");
+                using FileStream serverFile = new FileStream(path, FileMode.Create, FileAccess.Write);
+                var stream = await (new HttpClient()).GetStreamAsync("https://raw.githubusercontent.com/Spxg/eHallTools/dev/eHallTools/config/server.json");
+                stream.CopyTo(serverFile);
+
+                path = Path.Combine(configPath, "settings.json");
+                using FileStream settingsFile = new FileStream(path, FileMode.Create, FileAccess.Write);
+                stream = await (new HttpClient()).GetStreamAsync("https://raw.githubusercontent.com/Spxg/eHallTools/dev/eHallTools/config/settings.json");
+                stream.CopyTo(settingsFile);
+            }
+
+            GetSettings();
+            UpdateServerAddress();
         }
 
         public void GetSettings()
@@ -186,7 +205,6 @@ namespace eHallTools
             }
 
             editServer.UniversityList.SelectedIndex = 0;
-
             editServer.ShowDialog();
         }
     }
