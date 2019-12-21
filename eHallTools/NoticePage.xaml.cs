@@ -22,7 +22,7 @@ namespace eHallTools
             
             if (!int.TryParse(PageNumber.Text, out checkNumber) || checkNumber <= 0)
             {
-                MessageBox.Show("请输入页数");
+                MessageBox.Show("请输入正确的页数");
                 PageNumber.Text = "1";
             }
 
@@ -81,17 +81,32 @@ namespace eHallTools
 
         private void NextPage_Click(object sender, RoutedEventArgs e)
         {
-            PageNumber.Text = (int.Parse(PageNumber.Text) + 1).ToString();
-            ShowPage();
+            int checkNumber = 0;
+
+            if (!int.TryParse(PageNumber.Text, out checkNumber) || checkNumber <= 0)
+            {
+                MessageBox.Show("请输入正确的数字");
+                PageNumber.Text = "1";
+            }
+            else
+            {
+                PageNumber.Text = (checkNumber + 1).ToString();
+                ShowPage();
+            }
         }
 
         private void PreviousPage_Click(object sender, RoutedEventArgs e)
         {
-            int number = int.Parse(PageNumber.Text);
+            int checkNumber = 0;
 
-            if (number > 1)
+            if (!int.TryParse(PageNumber.Text, out checkNumber) || checkNumber < 1)
             {
-                PageNumber.Text = (number - 1).ToString();
+                MessageBox.Show("请输入正确的数字");
+                PageNumber.Text = "1";
+            }
+            else
+            {
+                PageNumber.Text = (checkNumber - 1).ToString();
                 ShowPage();
             }
         }
