@@ -102,4 +102,4 @@ foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
 - [eHallTools](https://github.com/Spxg/eHallTools/releases/download/1.5/eHallTools.zip)
 
 ### 鸣谢
-！[Wait](https://github.com/itswait)
+- [Wait](https://github.com/itswait)
