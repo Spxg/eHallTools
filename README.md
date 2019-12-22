@@ -99,5 +99,7 @@ foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
 
 
 ## 程序下载
-- [eHallTools](https://github.com/Spxg/eHallTools/releases/download/1.0/eHallTools.zip)
 - [eHallTools](https://github.com/Spxg/eHallTools/releases/download/1.5/eHallTools.zip)
+
+### 鸣谢
+！[Wait](https://github.com/itswait)
