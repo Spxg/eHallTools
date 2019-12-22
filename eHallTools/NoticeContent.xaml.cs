@@ -4,9 +4,6 @@ using System.Windows.Input;
 
 namespace eHallTools
 {
-    /// <summary>
-    /// Interaction logic for NoticeContent.xaml
-    /// </summary>
     public partial class NoticeContent : Window
     {
         readonly string noticeId;

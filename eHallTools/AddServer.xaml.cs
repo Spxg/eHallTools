@@ -1,12 +1,8 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 
 namespace eHallTools
 {
-    /// <summary>
-    /// Interaction logic for AddServer.xaml
-    /// </summary>
     public partial class AddServer : Window
     {
         public AddServer()

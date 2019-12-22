@@ -2,9 +2,6 @@
 
 namespace eHallTools
 {
-    /// <summary>
-    /// Interaction logic for Applications.xaml
-    /// </summary>
     public partial class Applications : Window
     {
         public Applications()
@@ -27,10 +24,17 @@ namespace eHallTools
 
             if (Application.Text == "师生服务")
             {
-                await MainWindow.operateClient.GetAsync("http://ssfw.tjut.edu.cn/ssfw/j_spring_ids_security_check");
+                var check = await MainWindow.operateClient.GetAsync("http://ssfw.tjut.edu.cn/ssfw/j_spring_ids_security_check");
 
-                STService service = new STService();
-                service.Show();
+                if (check.IsSuccessStatusCode)
+                {
+                    STService service = new STService();
+                    service.Show();
+                }
+                else
+                {
+                    MessageBox.Show("获取权限失败，请尝试退出重新登录");
+                }
             }
         }
     }
