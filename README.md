@@ -12,7 +12,7 @@
 
 ## 软件功能
 * 通知公告
-* 师生服务（Developing）
+* 师生服务（当前考试安排查询实现，其他Developing）
 * 等等
 
 ## 使用教程
@@ -96,10 +96,3 @@ foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
 * 并不需要连接校园网，但是校园网访问很快！
 
 * 添加删除服务地址后，回主页面更新即可
-
-* 移动config到程序目录（自己编译的注意）
-* 创建downloads文件夹（自己编译的注意）
-
-## 程序下载
-- [eHallTools](https://github.com/Spxg/eHallTools/releases/download/1.0/eHallTools.zip)
-
