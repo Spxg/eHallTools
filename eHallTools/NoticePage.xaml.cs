@@ -5,9 +5,6 @@ using System.Windows.Input;
 
 namespace eHallTools
 {
-    /// <summary>
-    /// Interaction logic for NoticePage.xaml
-    /// </summary>
     public partial class NoticePage : Window
     {
         public NoticePage()

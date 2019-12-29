@@ -8,8 +8,14 @@ namespace eHallTools
 {
     class FileOperation
     {
-        public async void ShowFileAsync(string token, DataGrid fileGrid)
-        { 
+        private readonly DataGrid fileGrid;
+        public FileOperation(DataGrid fileGrid)
+        {
+            this.fileGrid = fileGrid;
+        }
+
+        public async void ShowFileAsync(string token)
+        {
             JsonOperation notice = new JsonOperation();
             FileList fileList = await notice.GetFileInfoAsync(token);
 
@@ -30,20 +36,50 @@ namespace eHallTools
 
         public async void DownloadFileAync(string fileToken, string fileName)
         {
-            var directory = Environment.CurrentDirectory + "\\downloads";
+            MessageBoxResult result;
+            var directory = Environment.CurrentDirectory + "\\downloads\\" + NoticeContent.title + "\\file";
+            var path = Path.Combine(directory, fileName);
+
             if (!Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);
             }
 
-            var path = Path.Combine(directory, fileName);
-            using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))
+            if (!File.Exists(path))
             {
-                var stream = await MainWindow.operateClient.GetStreamAsync(MainWindow.eHallHttp + "/publicapp/sys/emapcomponent/file/getAttachmentFile/" + fileToken + ".do");
-                stream.CopyTo(file);
+                using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))
+                {
+                    var stream = await MainWindow.operateClient.GetStreamAsync(MainWindow.eHallHttp + "/publicapp/sys/emapcomponent/file/getAttachmentFile/" + fileToken + ".do");
+                    stream.CopyTo(file);
+                }
+                
+                result = MessageBox.Show("下载完成，是否打开", "提示", MessageBoxButton.YesNo, MessageBoxImage.Information);
+            }
+            else
+            {
+                result = MessageBox.Show("文件已存在，是否打开", "提示", MessageBoxButton.YesNo, MessageBoxImage.Information);
             }
 
-            MessageBox.Show("下载完成");
+            if (result == MessageBoxResult.Yes)
+            {
+                OpenFile(path);
+            }
+        }
+
+        public void OpenFile(string path)
+        {
+            System.Diagnostics.Process process = new System.Diagnostics.Process();
+
+            try
+            {
+                process.StartInfo.UseShellExecute = true;
+                process.StartInfo.FileName = path;
+                process.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         public class FileInfo

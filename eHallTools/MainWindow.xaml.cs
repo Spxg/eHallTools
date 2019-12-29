@@ -8,9 +8,6 @@ using System.Windows.Automation.Provider;
 
 namespace eHallTools
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public static HttpClient operateClient;

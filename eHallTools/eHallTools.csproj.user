@@ -2,11 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <ApplicationDefinition Update="App.xaml">
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="AddServer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -14,6 +9,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EditServer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ExamArrangement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="NoticeContent.xaml.cs">
@@ -34,6 +32,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EditServer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ExamArrangement.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
