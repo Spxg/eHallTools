@@ -7,7 +7,7 @@
         public string SubjectName { get; set; }
         public string SubjectProperity { get; set; }
         public string SubjectTeacher { get; set; }
-        public double Credit { get; set; }
+        public string Credit { get; set; }
         public string Time { get; set; }
         public string Place { get; set; }
         public string Method { get; set; }

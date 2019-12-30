@@ -43,7 +43,7 @@ namespace eHallTools
                     SubjectName = temp[2],
                     SubjectProperity = temp[3],
                     SubjectTeacher = temp[4],
-                    Credit = double.Parse(temp[5]),
+                    Credit = temp[5],
                     Time = temp[6],
                     Place = temp[7],
                     Method = temp[8],

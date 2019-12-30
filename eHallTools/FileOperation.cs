@@ -34,10 +34,10 @@ namespace eHallTools
             fileGrid.DataContext = fileData;
         }
 
-        public async void DownloadFileAync(string fileToken, string fileName)
+        public async void DownloadFileAync(string fileToken, string fileName, string title)
         {
             MessageBoxResult result;
-            var directory = Environment.CurrentDirectory + "\\downloads\\" + NoticeContent.title + "\\file";
+            var directory = Environment.CurrentDirectory + "\\downloads\\" + title + "\\file";
             var path = Path.Combine(directory, fileName);
 
             if (!Directory.Exists(directory))
