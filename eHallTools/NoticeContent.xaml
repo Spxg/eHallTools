@@ -14,6 +14,6 @@
                 <DataGridTextColumn Header="文件大小" Width="70" Binding="{Binding FileSize}" CanUserResize="False"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="以下为简单预览（部分内容不堪入目），如需详情双击打开" HorizontalAlignment="Center" Margin="0,3,0,0" VerticalAlignment="Top"/>
+        <Label Content="以下为简单预览（大部分内容不堪入目），如需详情双击打开" HorizontalAlignment="Center" Margin="0,3,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

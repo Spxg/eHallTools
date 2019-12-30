@@ -11,7 +11,7 @@ namespace eHallTools
         private readonly string noticeId;
         private readonly string token;
         private string content;
-        public static string title;
+        private string title;
 
         public NoticeContent(string noticeId, string token)
         {
@@ -74,7 +74,7 @@ namespace eHallTools
             {
                 FileOperation.FileInfo item = (FileOperation.FileInfo)FileGrid.SelectedItem;
                 FileOperation fileOperation = new FileOperation(FileGrid);
-                fileOperation.DownloadFileAync(item.FileToken, item.FileName);
+                fileOperation.DownloadFileAync(item.FileToken, item.FileName, title);
             }
         }
 
