@@ -26,7 +26,7 @@ namespace eHallTools
         {
             int index = ClientGrid.SelectedIndex;
 
-            if (!client[index].IsCurrentClient)
+            if (index != -1 && !client[index].IsCurrentClient)
             {
                 string tokenId = client[index].TokenId;
                 var removePostData = new Dictionary<string, string>()
