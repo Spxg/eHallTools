@@ -63,6 +63,7 @@
 ## 应用
 ### 通知公告
 * 界面
+
 ![通知公告](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/12/QQ截图20191230130925.png)
 
 * 双击看详情，如有文件，双击下载（/downloads/标题）

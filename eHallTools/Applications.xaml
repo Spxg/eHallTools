@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:eHallTools"
         mc:Ignorable="d"
-        Title="选择应用" Height="170" Width="250" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Microsoft YaHei UI">
+        Title="选择应用" Height="170" Width="250" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Microsoft YaHei">
     <Grid>
         <ComboBox x:Name="Application" HorizontalAlignment="Left" VerticalAlignment="Top" Width="112" SelectedIndex="0" Margin="100,72,0,0"/>
         <Button Content="进入" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Apply_Click" RenderTransformOrigin="0.402,2.805" Margin="0,98,0,0"/>

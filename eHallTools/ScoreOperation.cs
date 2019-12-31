@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using HtmlAgilityPack;
 
 namespace eHallTools
 {
@@ -19,27 +16,18 @@ namespace eHallTools
 
         public async void ShowScoreInfo()
         {
-            string info = await ParseInfo();
+            HtmlNodeCollection info = await ParseInfo();
             ObservableCollection<ScoreInfo> scoreInfo = new ObservableCollection<ScoreInfo>();
 
-            foreach (var item in Regex.Matches(info, @"(?<=class=""t_con"">).*?(?=</tr>)"))
+            foreach (var item in info)
             {
                 int i = 0;
                 string[] temp = new string[13];
 
-                foreach (var value in Regex.Matches(item.ToString(), @"(?<="">).*?(?=</td>)"))
+                foreach (var value in item.Elements("td"))
                 {
-                    string data = value.ToString();
-
-                    if (value.ToString().Contains("strong"))
-                    {
-                        data = Regex.Match(value.ToString(), @"(?<=<strong>).*?(?=</strong>)").Value;
-                    }
-                    else if (value.ToString().Contains("font"))
-                    {
-                        data = Regex.Match(value.ToString(), @"(?<=<font.*?>).*?(?=</font>)").Value;
-                    }
-
+                    string data = value.InnerText;
+                    data = data.Replace(" ", string.Empty);
                     temp[i++] = data;
                 }
 
@@ -64,17 +52,20 @@ namespace eHallTools
             scoreGrid.DataContext = scoreInfo;
         }
 
-        public async Task<string> ParseInfo()
+        public async Task<HtmlNodeCollection> ParseInfo()
         {
             string data = await MainWindow.operateClient.GetStringAsync("http://ssfw.tjut.edu.cn/ssfw/zhcx/cjxx.do");
-            data = data.Replace("\r", String.Empty);
-            data = data.Replace("\n", String.Empty);
-            data = data.Replace("\t", String.Empty);
-            data = data.Replace("&nbsp;", String.Empty);
-            data = data.Replace(" ", String.Empty);
-            data = Regex.Match(data, "<table.*</table>").Value;
+            data = data.Replace("&nbsp;", string.Empty);
+            data = data.Replace("\n", string.Empty);
+            data = data.Replace("\t", string.Empty);
+            data = data.Replace("\r", string.Empty);
 
-            return data;
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(data);
+            HtmlNode root = doc.DocumentNode;
+            HtmlNodeCollection nodes = root.SelectNodes("//*[@title=\"原始成绩\"]/table/tr[@class=\"t_con\"]");
+
+            return nodes;
         }
     }
 }

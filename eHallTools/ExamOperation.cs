@@ -1,8 +1,7 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Collections.ObjectModel;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using HtmlAgilityPack;
 
 namespace eHallTools
 {
@@ -21,19 +20,19 @@ namespace eHallTools
 
         public async void ShowExamInfo()
         {
-            (string arrangedExamInfo, string arrangingExamInfo, string notArrangeExamInfo) = await ParseInfo();
+            (HtmlNodeCollection arrangedExamInfo, HtmlNodeCollection arrangingExamInfo, HtmlNodeCollection notArrangeExamInfo) = await ParseInfo();
             ObservableCollection<ArrangedExamInfo> arrangedExamData = new ObservableCollection<ArrangedExamInfo>();
             ObservableCollection<ArrangingExamInfo> arrangingExamData = new ObservableCollection<ArrangingExamInfo>();
             ObservableCollection<NotArrangeExamInfo> notArrangeExamData = new ObservableCollection<NotArrangeExamInfo>();
 
-            foreach (var item in Regex.Matches(arrangedExamInfo, @"(?<=class=""t_con"">).*?(?=</tr>)"))
+            foreach (var item in arrangedExamInfo)
             {
                 int i = 0;
                 string[] temp = new string[11];
 
-                foreach (var value in Regex.Matches(item.ToString(), @"(?<="">).*?(?=(</span>|</td>))"))
+                foreach (var value in item.Elements("td"))
                 {
-                    temp[i++] = value.ToString();
+                    temp[i++] = value.InnerText;
                 }
 
                 arrangedExamData.Add(new ArrangedExamInfo()
@@ -52,16 +51,16 @@ namespace eHallTools
                 });
             }
             
-            foreach (var item in Regex.Matches(arrangingExamInfo, @"(?<=class=""t_con"">).*?(?=</tr>)"))
+            foreach (var item in arrangingExamInfo)
             {
                 int i = 0;
                 string[] temp = new string[7];
 
-                foreach (var value in Regex.Matches(item.ToString(), @"(?<="">).*?(?=(</span>|</td>))"))
+                foreach (var value in item.Elements("td"))
                 {
-                    temp[i++] = value.ToString();
+                    temp[i++] = value.InnerText;
                 }
-
+                
                 arrangingExamData.Add(new ArrangingExamInfo()
                 {
                     SerialNumber = int.Parse(temp[0]),
@@ -74,14 +73,14 @@ namespace eHallTools
                 });
             }
             
-            foreach (var item in Regex.Matches(notArrangeExamInfo, @"(?<=class=""t_con"">).*?(?=</tr>)"))
+            foreach (var item in notArrangeExamInfo)
             {
                 int i = 0;
                 string[] temp = new string[5];
 
-                foreach (var value in Regex.Matches(item.ToString(), @"(?<="">).*?(?=(</span>|</td>))"))
+                foreach (var value in item.Elements("td"))
                 {
-                    temp[i++] = value.ToString();
+                    temp[i++] = value.InnerText;
                 }
 
                 notArrangeExamData.Add(new NotArrangeExamInfo()
@@ -99,15 +98,16 @@ namespace eHallTools
             notArrangeExamGrid.DataContext = notArrangeExamData;
         }
 
-        public async Task<(string, string, string)> ParseInfo()
+        public async Task<(HtmlNodeCollection, HtmlNodeCollection, HtmlNodeCollection)> ParseInfo()
         {
             string data = await MainWindow.operateClient.GetStringAsync("http://ssfw.tjut.edu.cn/ssfw/xsks/kcxx.do");
-            data = data.Replace("\r", String.Empty);
-            data = data.Replace("\n", String.Empty);
-            data = data.Replace("\t", String.Empty);
-            var arrangedExamInfo = Regex.Match(data, @"(?<=已安排考试课程).*?(?=</fieldset>)").Value;
-            var arrangingExamInfo = Regex.Match(data, @"(?<=安排中的考试课程).*?(?=</fieldset>)").Value;
-            var notArrangeExamInfo = Regex.Match(data, @"(?<=未编排考试的课程).*?(?=</fieldset>)").Value;
+            HtmlDocument doc = new HtmlDocument();
+            doc.LoadHtml(data);
+
+            HtmlNode root = doc.DocumentNode;
+            HtmlNodeCollection arrangedExamInfo = root.SelectNodes("/html/body/div[1]/div/fieldset[1]/table/tr[@class=\"t_con\"]");
+            HtmlNodeCollection arrangingExamInfo = root.SelectNodes("/html/body/div[1]/div/fieldset[2]/table/tr[@class=\"t_con\"]");
+            HtmlNodeCollection notArrangeExamInfo = root.SelectNodes("/html/body/div[1]/div/fieldset[3]/table/tr[@class=\"t_con\"]");
 
             return (arrangedExamInfo, arrangingExamInfo, notArrangeExamInfo);
         }

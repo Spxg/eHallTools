@@ -35,16 +35,6 @@ namespace eHallTools
             string text = Regex.Replace(content, @"<.*?>|&.*?;", string.Empty);
             text = "        " + text;
 
-            foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\w{1,2}、"))
-            {
-                text = text.Insert(text.LastIndexOf(m.ToString()), "\n");
-            }
-
-            foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
-            {
-                text = text.Insert(text.LastIndexOf(m.ToString()), "\n");
-            }
-
             DetailContent.Text = text;
 
             fileOperation.ShowFileAsync(token);

@@ -10,6 +10,7 @@ namespace eHallTools
             Application.Items.Clear();
             Application.Items.Add("通知公告");
             Application.Items.Add("师生服务");
+            Application.Items.Add("当前登录");
         }
 
         private async void Apply_Click(object sender, RoutedEventArgs e)
@@ -17,7 +18,7 @@ namespace eHallTools
             if (Application.Text == "通知公告")
             {
                 await MainWindow.operateClient.GetAsync(MainWindow.eHallHttp + "/publicapp/sys/bulletin/configSet/noraml/getRouteConfig.do");
-                
+
                 NoticePage noticePage = new NoticePage();
                 noticePage.Show();
             }
@@ -35,6 +36,12 @@ namespace eHallTools
                 {
                     MessageBox.Show("获取权限失败，请尝试退出重新登录");
                 }
+            }
+
+            if (Application.Text == "当前登录")
+            {
+                CurrentLogin currentLogin = new CurrentLogin();
+                currentLogin.Show();
             }
         }
     }
