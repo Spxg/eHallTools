@@ -14,6 +14,7 @@ namespace eHallTools
         public static string authserverHttp;
         public static string eHallHttp;
         public static string configPath;
+        
         public MainWindow()
         {
             InitializeComponent();
