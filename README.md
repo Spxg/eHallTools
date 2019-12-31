@@ -96,25 +96,6 @@
 * 对于某些通知，处理的并不好（没法看）如以下通知，因技术有限，处理成一坨, 如需查看，双击通知内容进入浏览器解析
 ![案例](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129231746.png)
 
-使用正则表达式处理一些文章, '<' '>'被吃了，Crayon的锅大概
-
-![正则表达式](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191130095608-1.png)
-
-```sh
-string text = Regex.Replace(content.Content, @"<.*?>|&.*?;", string.Empty);
-text = "        " + text;
-
-foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\w{1,2}、"))
-{
-    text = text.Insert(text.LastIndexOf(m.ToString()), "\n");
-}
-
-foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
-{
-    text = text.Insert(text.IndexOf(m.ToString()), "\n");
-}
-```
-
 * 并不需要连接校园网，但是校园网访问很快！
 
 * 添加删除服务地址后，回主页面更新即可
