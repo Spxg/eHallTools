@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:eHallTools"
         mc:Ignorable="d"
-        Title="登录" Height="250" Width="308" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Microsoft YaHei UI">
+        Title="登录" Height="250" Width="308" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Microsoft YaHei">
     <Grid>
         <ComboBox x:Name="University" HorizontalAlignment="Left" Margin="90,27,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="University_SelectionChanged"/>
         <ComboBox x:Name="AuthserverHttp" HorizontalAlignment="Left" Margin="90,53,0,0" VerticalAlignment="Top" Width="197" SelectionChanged="AuthserverHttp_SelectionChanged"/>

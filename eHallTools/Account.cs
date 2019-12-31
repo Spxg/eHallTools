@@ -24,7 +24,6 @@ namespace eHallTools
 
             var loginPost = new FormUrlEncodedContent(loginPostData);
             var loginResponse = await loginClient.PostAsync(MainWindow.authserverHttp + "/authserver/login", loginPost);
-
             var loginError = Regex.Match(await loginResponse.Content.ReadAsStringAsync(), @"loginMsg").Success;
 
             if (loginError)
