@@ -1,6 +1,15 @@
 ## 更新日志
-* 20191230更新至1.7.0
-* 然后忘了
+### 1.8.0
+* 20191231更新
+* 添加当前登录功能
+
+### 1.7.5
+* 20191231更新
+* 使用XPath提取HTML数据
+* 修复Bug
+
+### 1.7.0
+* 20191230更新
 
 ## 使用前必看
 * 软件采用.Net Core WPF开发, 需下载安装运行时才能正常运行[.Net Core Runtime](https://dotnet.microsoft.com/download)
@@ -78,6 +87,11 @@
 ### 成绩查询
 ![成绩查询](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/12/QQ截图20191230130715.png)
 
+### 当前登录
+![当前登录](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/12/QQ截图20191231223602.png)
+* 双击踢出设备
+* 一键踢出所有设备
+
 ## 注意
 * 对于某些通知，处理的并不好（没法看）如以下通知，因技术有限，处理成一坨, 如需查看，双击通知内容进入浏览器解析
 ![案例](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129231746.png)
@@ -109,7 +123,7 @@ foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
 ![辣鸡电信](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/12/QQ截图20191230131933.png)
 
 ## 程序下载
-- [eHallTools](https://github.com/Spxg/eHallTools/releases/download/1.7.0/eHallTools.zip)
+- [eHallTools](https://github.com/Spxg/eHallTools/releases/download/1.8.0/eHallTools.zip)
 
 ### 鸣谢
 - [Wait](https://github.com/itswait)
