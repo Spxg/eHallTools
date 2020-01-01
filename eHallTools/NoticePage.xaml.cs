@@ -61,9 +61,12 @@ namespace eHallTools
 
         private void PageGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            PageInfo item = (PageInfo)PageGrid.SelectedItem;
-            NoticeContent content = new NoticeContent(item.NoticeId, item.Attachment);
-            content.Show();
+            if (PageGrid.SelectedIndex != -1)
+            {
+                PageInfo item = (PageInfo)PageGrid.SelectedItem;
+                NoticeContent content = new NoticeContent(item.NoticeId, item.Attachment);
+                content.Show();
+            }
         }
 
         private void PageSize_KeyDown(object sender, KeyEventArgs e)
