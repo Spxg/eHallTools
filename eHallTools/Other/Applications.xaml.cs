@@ -15,7 +15,7 @@ namespace eHallTools
 
         private async void Apply_Click(object sender, RoutedEventArgs e)
         {
-            if (Application.Text == "通知公告")
+            if (Application.SelectedIndex == 0)
             {
                 await MainWindow.operateClient.GetAsync(MainWindow.eHallHttp + "/publicapp/sys/bulletin/configSet/noraml/getRouteConfig.do");
 
@@ -23,7 +23,7 @@ namespace eHallTools
                 noticePage.Show();
             }
 
-            if (Application.Text == "师生服务")
+            if (Application.SelectedIndex == 1)
             {
                 var check = await MainWindow.operateClient.GetAsync("http://ssfw.tjut.edu.cn/ssfw/j_spring_ids_security_check");
 
@@ -38,7 +38,7 @@ namespace eHallTools
                 }
             }
 
-            if (Application.Text == "当前登录")
+            if (Application.SelectedIndex == 2)
             {
                 CurrentLogin currentLogin = new CurrentLogin();
                 currentLogin.Show();

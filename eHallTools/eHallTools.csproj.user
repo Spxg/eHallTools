@@ -5,10 +5,13 @@
     <Compile Update="Other\AddServer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Applications.xaml.cs">
+    <Compile Update="Other\Applications.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Other\EditServer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="STService\CourseSelectionView\CourseSelectionView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="STService\ExamArrangement\ExamArrangement.xaml.cs">
@@ -31,10 +34,13 @@
     <Page Update="Other\AddServer.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Applications.xaml">
+    <Page Update="Other\Applications.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Other\EditServer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="STService\CourseSelectionView\CourseSelectionView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="STService\ExamArrangement\ExamArrangement.xaml">
