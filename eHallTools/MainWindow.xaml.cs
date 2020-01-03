@@ -25,6 +25,7 @@ namespace eHallTools
         private async void Login_Click(object sender, RoutedEventArgs e)
         {
             Login.IsEnabled = false;
+            Login.Content = "登录中";
             authserverHttp = AuthserverHttp.SelectedItem.ToString();
             eHallHttp = EhallHttp.SelectedItem.ToString();
 
@@ -63,6 +64,7 @@ namespace eHallTools
             }
 
             Login.IsEnabled = true;
+            Login.Content = "登录";
 
             await account.LogoutAsync();
         }
@@ -204,6 +206,13 @@ namespace eHallTools
 
             editServer.UniversityList.SelectedIndex = 0;
             editServer.ShowDialog();
+        }
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+
+            AboutSoftware about = new AboutSoftware();
+            about.Show();
         }
     }
 }

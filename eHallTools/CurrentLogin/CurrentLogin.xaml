@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:eHallTools"
         mc:Ignorable="d"
-        Title="当前登录" Height="170" Width="550" FontFamily="Microsoft YaHei" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="当前登录" Height="170" Width="530" FontFamily="Microsoft YaHei" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <DataGrid x:Name="ClientGrid" AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding}" MouseDoubleClick="ClientGrid_MouseDoubleClick" Margin="0,0,0,29">
             <DataGrid.Columns>

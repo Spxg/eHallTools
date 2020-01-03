@@ -2,57 +2,69 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="AddServer.xaml.cs">
+    <Compile Update="AboutSoftware.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Applications.xaml.cs">
+    <Compile Update="Other\AddServer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="EditServer.xaml.cs">
+    <Compile Update="Other\Applications.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ExamArrangement.xaml.cs">
+    <Compile Update="Other\EditServer.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="NoticeContent.xaml.cs">
+    <Compile Update="STService\CourseSelectionView\CourseSelectionView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="NoticePage.xaml.cs">
+    <Compile Update="STService\ExamArrangement\ExamArrangement.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ScoreQuery.xaml.cs">
+    <Compile Update="Notice\NoticeContent\NoticeContent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="STService.xaml.cs">
+    <Compile Update="Notice\NoticePage\NoticePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="STService\ScoreQuery\ScoreQuery.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="STService\STService.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="AddServer.xaml">
+    <Page Update="AboutSoftware.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Applications.xaml">
+    <Page Update="Other\AddServer.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="EditServer.xaml">
+    <Page Update="Other\Applications.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ExamArrangement.xaml">
+    <Page Update="Other\EditServer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="STService\CourseSelectionView\CourseSelectionView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="STService\ExamArrangement\ExamArrangement.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="NoticeContent.xaml">
+    <Page Update="Notice\NoticeContent\NoticeContent.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="NoticePage.xaml">
+    <Page Update="Notice\NoticePage\NoticePage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="ScoreQuery.xaml">
+    <Page Update="STService\ScoreQuery\ScoreQuery.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="STService.xaml">
+    <Page Update="STService\STService.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

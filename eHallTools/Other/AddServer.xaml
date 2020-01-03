@@ -1,0 +1,19 @@
+﻿<Window x:Class="eHallTools.AddServer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:eHallTools"
+        mc:Ignorable="d"
+        Title="添加学校" Height="170" Width="300" FontFamily="Microsoft YaHei" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="NewUniversity" HorizontalAlignment="Left" Margin="91,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="NewAuthServer" HorizontalAlignment="Left" Margin="91,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <TextBox x:Name="NewEhallServer" HorizontalAlignment="Left" Margin="91,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="187"/>
+        <Label Content="学校" HorizontalAlignment="Left" Margin="52,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="认证地址" HorizontalAlignment="Left" Margin="28,42,0,0" VerticalAlignment="Top"/>
+        <Label Content="eHall地址" HorizontalAlignment="Left" Margin="25,68,0,0" VerticalAlignment="Top"/>
+        <Button Content="添加" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" Click="Add_Click"/>
+
+    </Grid>
+</Window>
