@@ -77,12 +77,12 @@ namespace eHallTools
 
                 var path = Path.Combine(configPath, "server.json");
                 using FileStream serverFile = new FileStream(path, FileMode.Create, FileAccess.Write);
-                var stream = await (new HttpClient()).GetStreamAsync("https://raw.githubusercontent.com/Spxg/eHallTools/dev/eHallTools/config/server.json");
+                var stream = await (new HttpClient()).GetStreamAsync("https://raw.githubusercontent.com/Spxg/eHallTools/master/eHallTools/config/server.json");
                 stream.CopyTo(serverFile);
 
                 path = Path.Combine(configPath, "settings.json");
                 using FileStream settingsFile = new FileStream(path, FileMode.Create, FileAccess.Write);
-                stream = await (new HttpClient()).GetStreamAsync("https://raw.githubusercontent.com/Spxg/eHallTools/dev/eHallTools/config/settings.json");
+                stream = await (new HttpClient()).GetStreamAsync("https://raw.githubusercontent.com/Spxg/eHallTools/master/eHallTools/config/settings.json");
                 stream.CopyTo(settingsFile);
             }
 
