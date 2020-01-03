@@ -14,7 +14,7 @@
 
         <TextBox x:Name="StudentId" HorizontalAlignment="Left" Margin="90,113,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="18"/>
         <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="90,139,0,0" VerticalAlignment="Top" Width="120" Height="18"/>
-        <Button x:Name="Login" Content="登录" HorizontalAlignment="Center" Margin="0,185,0,0" VerticalAlignment="Top" Click="Login_Click"/>
+        <Button x:Name="Login" Content="登录" HorizontalAlignment="Center" Margin="0,185,0,0" VerticalAlignment="Top" Click="Login_Click" Width="69"/>
         <Label Content="学校" HorizontalAlignment="Left" Margin="48,27,0,0" VerticalAlignment="Top"/>
         <Label Content="认证地址" HorizontalAlignment="Left" Margin="24,53,0,0" VerticalAlignment="Top"/>
         <Label Content="eHall地址" HorizontalAlignment="Left" Margin="19,77,0,0" VerticalAlignment="Top"/>
