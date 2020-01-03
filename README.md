@@ -1,4 +1,9 @@
 ## 更新日志
+### 1.8.5
+* 20200103更新
+* 选课结果查看
+* 添加关于软件
+
 ### 1.8.0
 * 20191231更新
 * 添加当前登录功能
@@ -22,7 +27,7 @@
 
 ## 软件功能
 * 通知公告
-* 师生服务（实现考试安排查询及成绩查询）
+* 师生服务（实现考试安排查询, 成绩查询, 选课结果查看）
 
 ## 使用教程
 ### 登录
@@ -87,6 +92,9 @@
 ### 成绩查询
 ![成绩查询](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/12/QQ截图20191230130715.png)
 
+### 考试安排查询
+![考试安排查询](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/12/QQ截图20191230130655.png)
+
 ### 当前登录
 ![当前登录](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/12/QQ截图20191231223602.png)
 * 双击踢出设备
@@ -96,25 +104,6 @@
 * 对于某些通知，处理的并不好（没法看）如以下通知，因技术有限，处理成一坨, 如需查看，双击通知内容进入浏览器解析
 ![案例](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191129231746.png)
 
-使用正则表达式处理一些文章, '<' '>'被吃了，Crayon的锅大概
-
-![正则表达式](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/11/QQ截图20191130095608-1.png)
-
-```sh
-string text = Regex.Replace(content.Content, @"<.*?>|&.*?;", string.Empty);
-text = "        " + text;
-
-foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\w{1,2}、"))
-{
-    text = text.Insert(text.LastIndexOf(m.ToString()), "\n");
-}
-
-foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
-{
-    text = text.Insert(text.IndexOf(m.ToString()), "\n");
-}
-```
-
 * 并不需要连接校园网，但是校园网访问很快！
 
 * 添加删除服务地址后，回主页面更新即可
@@ -123,7 +112,7 @@ foreach (var m in Regex.Matches(text, @"(?<=(：|。)\s*)\d(、|\.)"))
 ![辣鸡电信](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/12/QQ截图20191230131933.png)
 
 ## 程序下载
-- [eHallTools](https://github.com/Spxg/eHallTools/releases/download/1.8.0/eHallTools.zip)
+- [eHallTools](https://github.com/Spxg/eHallTools/releases/download/1.8.5/eHallTools.zip)
 
 ### 鸣谢
 - [Wait](https://github.com/itswait)
