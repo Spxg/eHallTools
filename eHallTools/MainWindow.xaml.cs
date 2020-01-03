@@ -207,5 +207,12 @@ namespace eHallTools
             editServer.UniversityList.SelectedIndex = 0;
             editServer.ShowDialog();
         }
+
+        private void About_Click(object sender, RoutedEventArgs e)
+        {
+
+            AboutSoftware about = new AboutSoftware();
+            about.Show();
+        }
     }
 }

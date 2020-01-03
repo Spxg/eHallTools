@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:eHallTools"
         mc:Ignorable="d"
-        Title="登录" Height="250" Width="308" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Microsoft YaHei">
+        Title="登录" Height="270" Width="308" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" FontFamily="Microsoft YaHei">
     <Grid>
         <ComboBox x:Name="University" HorizontalAlignment="Left" Margin="90,27,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="University_SelectionChanged"/>
         <ComboBox x:Name="AuthserverHttp" HorizontalAlignment="Left" Margin="90,53,0,0" VerticalAlignment="Top" Width="197" SelectionChanged="AuthserverHttp_SelectionChanged"/>
@@ -23,5 +23,6 @@
         <CheckBox x:Name="RememberPassword" Content="记住密码" HorizontalAlignment="Left" Margin="65,165,0,0" VerticalAlignment="Top" Click="RememberPassword_Click"/>
         <CheckBox x:Name="AutoLogin" Content="自动登录" HorizontalAlignment="Left" Margin="188,165,0,0" VerticalAlignment="Top" Checked="AutoLogin_Checked"/>
         <Button Content="编辑" HorizontalAlignment="Left" Margin="219,29,0,0" VerticalAlignment="Top" Width="31" Click="Edit_Click"/>
+        <Button Content="关于软件" HorizontalAlignment="Left" Margin="234,208,0,0" VerticalAlignment="Top" Click="About_Click"/>
     </Grid>
 </Window>
