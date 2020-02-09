@@ -112,7 +112,7 @@
 ![辣鸡电信](https://wordpress-1253676827.file.myqcloud.com/wp-content/uploads/2019/12/QQ截图20191230131933.png)
 
 ## 程序下载
-- [eHallTools](https://github.com/Spxg/eHallTools/releases/download/1.8.5/eHallTools.zip)
+- [eHallTools](https://github.com/Spxg/eHallTools/releases/download/v1.8.5/eHallTools.zip)
 
 ### 鸣谢
 - [Wait](https://github.com/itswait)
