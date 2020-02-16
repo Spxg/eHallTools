@@ -25,72 +25,81 @@ namespace eHallTools
             ObservableCollection<ArrangingExamInfo> arrangingExamData = new ObservableCollection<ArrangingExamInfo>();
             ObservableCollection<NotArrangeExamInfo> notArrangeExamData = new ObservableCollection<NotArrangeExamInfo>();
 
-            foreach (var item in arrangedExamInfo)
+            if (arrangedExamInfo != null)
             {
-                int i = 0;
-                string[] temp = new string[11];
-
-                foreach (var value in item.Elements("td"))
+                foreach (var item in arrangedExamInfo)
                 {
-                    temp[i++] = value.InnerText;
+                    int i = 0;
+                    string[] temp = new string[11];
+
+                    foreach (var value in item.Elements("td"))
+                    {
+                        temp[i++] = value.InnerText;
+                    }
+
+                    arrangedExamData.Add(new ArrangedExamInfo()
+                    {
+                        SerialNumber = int.Parse(temp[0]),
+                        SubjectNumber = int.Parse(temp[1]),
+                        SubjectName = temp[2],
+                        SubjectProperity = temp[3],
+                        SubjectTeacher = temp[4],
+                        Credit = temp[5],
+                        Time = temp[6],
+                        Place = temp[7],
+                        Method = temp[8],
+                        Way = temp[9],
+                        Status = temp[10]
+                    });
                 }
-
-                arrangedExamData.Add(new ArrangedExamInfo()
-                {
-                    SerialNumber = int.Parse(temp[0]),
-                    SubjectNumber = int.Parse(temp[1]),
-                    SubjectName = temp[2],
-                    SubjectProperity = temp[3],
-                    SubjectTeacher = temp[4],
-                    Credit = temp[5],
-                    Time = temp[6],
-                    Place = temp[7],
-                    Method = temp[8],
-                    Way = temp[9],
-                    Status = temp[10]
-                });
             }
-            
-            foreach (var item in arrangingExamInfo)
-            {
-                int i = 0;
-                string[] temp = new string[7];
 
-                foreach (var value in item.Elements("td"))
+            if (arrangingExamInfo != null)
+            {
+                foreach (var item in arrangingExamInfo)
                 {
-                    temp[i++] = value.InnerText;
+                    int i = 0;
+                    string[] temp = new string[7];
+
+                    foreach (var value in item.Elements("td"))
+                    {
+                        temp[i++] = value.InnerText;
+                    }
+
+                    arrangingExamData.Add(new ArrangingExamInfo()
+                    {
+                        SerialNumber = int.Parse(temp[0]),
+                        SubjectNumber = int.Parse(temp[1]),
+                        SubjectName = temp[2],
+                        SubjectProperity = temp[3],
+                        SubjectTeacher = temp[4],
+                        Credit = double.Parse(temp[5]),
+                        TimeAndPlace = temp[6]
+                    });
                 }
-                
-                arrangingExamData.Add(new ArrangingExamInfo()
-                {
-                    SerialNumber = int.Parse(temp[0]),
-                    SubjectNumber = int.Parse(temp[1]),
-                    SubjectName = temp[2],
-                    SubjectProperity = temp[3],
-                    SubjectTeacher = temp[4],
-                    Credit = double.Parse(temp[5]),
-                    TimeAndPlace = temp[6]
-                });
             }
-            
-            foreach (var item in notArrangeExamInfo)
+
+            if (notArrangeExamInfo != null)
             {
-                int i = 0;
-                string[] temp = new string[5];
-
-                foreach (var value in item.Elements("td"))
+                foreach (var item in notArrangeExamInfo)
                 {
-                    temp[i++] = value.InnerText;
+                    int i = 0;
+                    string[] temp = new string[5];
+
+                    foreach (var value in item.Elements("td"))
+                    {
+                        temp[i++] = value.InnerText;
+                    }
+
+                    notArrangeExamData.Add(new NotArrangeExamInfo()
+                    {
+                        SerialNumber = int.Parse(temp[0]),
+                        SubjectNumber = int.Parse(temp[1]),
+                        SubjectName = temp[2],
+                        Credit = double.Parse(temp[3]),
+                        TimeAndPlace = temp[4]
+                    });
                 }
-
-                notArrangeExamData.Add(new NotArrangeExamInfo()
-                {
-                    SerialNumber = int.Parse(temp[0]),
-                    SubjectNumber = int.Parse(temp[1]),
-                    SubjectName = temp[2],
-                    Credit = double.Parse(temp[3]),
-                    TimeAndPlace = temp[4]
-                });
             }
 
             arrangedExamGrid.DataContext = arrangedExamData;

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:eHallTools"
         mc:Ignorable="d"
-        Title="成绩查询" Height="200" Width="880" FontFamily="Microsoft YaHei" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="成绩查询" Height="300" Width="900" FontFamily="Microsoft YaHei" ResizeMode="CanResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <DataGrid x:Name="ScoreGrid" AutoGenerateColumns="False" ItemsSource="{Binding}" IsReadOnly="True">
             <DataGrid.Columns>
