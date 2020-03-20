@@ -25,7 +25,7 @@ namespace eHallTools
 
             if (Application.SelectedIndex == 1)
             {
-                var check = await MainWindow.operateClient.GetAsync("http://ssfw.tjut.edu.cn/ssfw/j_spring_ids_security_check");
+                var check = await MainWindow.operateClient.GetAsync("http://ssfw.tjut.edu.cn/ssfw/cas_index.jsp");
 
                 if (check.IsSuccessStatusCode)
                 {
