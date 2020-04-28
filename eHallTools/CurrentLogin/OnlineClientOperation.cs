@@ -22,43 +22,46 @@ namespace eHallTools
             HtmlNodeCollection nodes = await ParseInfoAsync();
             ObservableCollection<OnlineClientInfo> client = new ObservableCollection<OnlineClientInfo>();
 
-            foreach (var item in nodes)
+            if (nodes != null)
             {
-                int i = 0;
-                string[] temp = new string[5];
-
-                foreach (var info in item.Elements("td"))
+                foreach (var item in nodes)
                 {
-                    if (i == 3)
+                    int i = 0;
+                    string[] temp = new string[5];
+
+                    foreach (var info in item.Elements("td"))
                     {
-                        string data = info.InnerHtml;
-                        data = Regex.Match(data, @"(?<=removeOnline\(\').*?(?=\'\))").Value;
-                        
-                        if (data != string.Empty)
+                        if (i == 3)
                         {
-                            temp[i++] = "false";
+                            string data = info.InnerHtml;
+                            data = Regex.Match(data, @"(?<=removeOnline\(\').*?(?=\'\))").Value;
+
+                            if (data != string.Empty)
+                            {
+                                temp[i++] = "false";
+                            }
+                            else
+                            {
+                                temp[i++] = "true";
+                            }
+
+                            temp[i] = data;
                         }
                         else
                         {
-                            temp[i++] = "true";
+                            temp[i++] = info.InnerText;
                         }
-
-                        temp[i] = data;
                     }
-                    else
+
+                    client.Add(new OnlineClientInfo()
                     {
-                        temp[i++] = info.InnerText;
-                    }
+                        UserIp = temp[0],
+                        LoginTime = temp[1],
+                        ClientType = temp[2],
+                        IsCurrentClient = bool.Parse(temp[3]),
+                        TokenId = temp[4]
+                    });
                 }
-
-                client.Add(new OnlineClientInfo()
-                {
-                    UserIp = temp[0],
-                    LoginTime = temp[1],
-                    ClientType = temp[2],
-                    IsCurrentClient = bool.Parse(temp[3]),
-                    TokenId = temp[4]
-                });
             }
 
             clientGrid.DataContext = client;
@@ -85,7 +88,7 @@ namespace eHallTools
             {
                 if (ex.Message.Contains("302"))
                 {
-                    MessageBox.Show("302跳转导致错误");
+                    MessageBox.Show("302跳转导致错误, 请稍后再试");
                 }
             }
 
