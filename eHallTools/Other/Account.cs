@@ -42,11 +42,12 @@ namespace eHallTools
             await MainWindow.operateClient.GetAsync(MainWindow.authserverHttp + "/authserver/logout");
         }
 
-        public async Task<MatchCollection> GetInfoAsync()
+        public async Task<string[]> GetInfoAsync()
         {
             var data = await MainWindow.operateClient.GetStringAsync(MainWindow.eHallHttp + "/publicapp/sys/bulletin/index.do");
             var temp = Regex.Match(data, @"(?<=\[).*(?=\])").Value;
-            var info = Regex.Matches(temp, @"(?<="")\w+(?="")");
+            temp = temp.Replace("\"", "");
+            var info = temp.Split(",");
             return info;
         }
     }

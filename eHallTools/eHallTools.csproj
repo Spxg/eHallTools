@@ -8,7 +8,7 @@
     <Product />
     <Company></Company>
     <Version>1.8.0</Version>
-    <ApplicationIcon>cb12v-8m58n-001.ico</ApplicationIcon>
+    <ApplicationIcon>eHallTools.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

@@ -36,7 +36,7 @@ namespace eHallTools
             {
                 var loginClient = new HttpClient(loginHandler);
                 loginClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
-                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36");
+                                                                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36");
                 loginStatus = await new Account().LoginAsync(StudentId.Text, Password.Password, loginClient);
                 loginClient.Dispose();
             }
@@ -45,17 +45,17 @@ namespace eHallTools
             var operateHandler = new HttpClientHandler { CookieContainer = cc };
             operateClient = new HttpClient(operateHandler);
             operateClient.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
-                "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36");
+                                                                  "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36");
 
             if (loginStatus)
             {
                 Applications applications = new Applications();
                 var info = await account.GetInfoAsync();
 
-                applications.StudentId.Text = info[0].Value;
-                applications.StudentName.Text = info[1].Value;
-                applications.Sex.Text = info[2].Value;
-                applications.School.Text = info[3].Value;
+                applications.StudentId.Text = info[0];
+                applications.StudentName.Text = info[1];
+                applications.Sex.Text = info[2];
+                applications.School.Text = info[3];
 
                 UpdateSettings();
                 Hide();
